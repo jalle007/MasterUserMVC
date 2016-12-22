@@ -1,0 +1,14 @@
+﻿@{
+  ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+  <h1>MasterUser MVC</h1>
+  <p class="lead">
+  </p>
+  @if (!Request.IsAuthenticated) {
+    <p><a href="@Url.Action("Login", "Account")" class="btn btn-primary btn-lg">Login</a></p>
+  }
+
+</div>
+
