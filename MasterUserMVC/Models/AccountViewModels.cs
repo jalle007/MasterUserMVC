@@ -3,8 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MasterUserMVC.Models
 {
-  
-    public class LoginViewModel
+  public class EncryptionModel {
+    public string Message { get; set; }
+    public string Encrypted { get; set; }
+    public bool Decrypted { get; set; }
+  }
+
+  public class LoginViewModel
     {
         [Required]
         [Display(Name = "Email")]

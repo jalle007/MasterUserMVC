@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MasterUserMVC.Hubs;
+using MasterUserMVC.Models;
 using Microsoft.AspNet.SignalR;
 
 namespace MasterUserMVC.Controllers {
 
   public class HomeController : Controller 
     {
-    public ActionResult Index() {
-      return View();
-    }
+    public ActionResult Index() {return View();}
 
     //[Authorize(Roles = "Admin")]
     [System.Web.Mvc.Authorize]
@@ -39,10 +38,16 @@ namespace MasterUserMVC.Controllers {
 
     [System.Web.Mvc.Authorize]
     [ActionName("User")]
-    public ActionResult UserAction() {
-      ViewBag.Message = "Your User page.";
-
+    public ActionResult UserAction(EncryptionModel data) {
       return View();
+    }
+
+    [System.Web.Mvc.Authorize]
+    [HttpPost]
+    [ActionName("User")]
+    public ActionResult UserActionPost(EncryptionModel data) {
+
+      return View(data);
     }
   }
 }
