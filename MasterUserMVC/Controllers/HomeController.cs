@@ -30,6 +30,8 @@ namespace MasterUserMVC.Controllers {
     //[Authorize(Roles = "Admin")]
     [System.Web.Mvc.Authorize]
     public ActionResult Admin() {
+      this.HttpContext.Response.AddHeader("refresh", "5; url=" + Url.Action("Admin"));
+
       List<string> loggedInUsers = (List<string>)HttpRuntime.Cache["LoggedInUsers"];
 
       return View();
